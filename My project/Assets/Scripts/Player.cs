@@ -9,15 +9,44 @@ public class Player : MonoBehaviour
     private Vector3 velocity;
     private Vector3 distance;
 
-    void start()
+
+    private int playerIndex = -1;
+
+    private Player[] player;
+
+    void Start()
     {
         speed = movementSpeed;
+        if(gameObject.CompareTag("Player 1"))
+        {
+            playerIndex = 0;
+        }
+        else if(gameObject.CompareTag("Player 2"))
+        {
+            playerIndex= 1;
+        }
     }
     // Update is called once per frame
     void Update()
     {
-        speed = movementSpeed;
-        velocity = new Vector3(Input.GetAxis("Horizontal"),Input.GetAxis("Vertical"),0);
+        if(playerIndex ==0)
+        {
+            //MoveMethod(0)
+
+            velocity = new Vector3(Input.GetAxis("Horizontal"),Input.GetAxis("Vertical"),0);
+
+        }
+        else if(playerIndex ==1)
+        {
+
+            velocity = new Vector3(Input.GetAxis("Horizontal1"),Input.GetAxis("Vertical1"),0);
+
+        }
+        MoveMethod();
+    }
+
+    void MoveMethod()
+    {
         distance = velocity * speed * Time.deltaTime;
         transform.Translate(distance);
     }
