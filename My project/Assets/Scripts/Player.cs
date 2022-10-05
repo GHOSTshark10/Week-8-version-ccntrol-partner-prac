@@ -33,13 +33,13 @@ public class Player : MonoBehaviour
         {
             //MoveMethod(0)
 
-            velocity = new Vector3(Input.GetAxis("Horizontal"),Input.GetAxis("Vertical"),0);
+            velocity = new Vector3(Input.GetAxis("Horizontal"),0,Input.GetAxis("Vertical"));
 
         }
         else if(playerIndex ==1)
         {
 
-            velocity = new Vector3(Input.GetAxis("Horizontal1"),Input.GetAxis("Vertical1"),0);
+            velocity = new Vector3(Input.GetAxis("Horizontal1"),0,Input.GetAxis("Vertical1"));
 
         }
         MoveMethod();
